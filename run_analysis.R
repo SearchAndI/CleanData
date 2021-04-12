@@ -33,16 +33,30 @@ head (training_lables)  ; head(testing_lables)
 dim(training_lables); dim(training_set); dim(train_subjects)
 dim(testing_lables); dim(testing_set); dim(test_subjects)
 
+features <- data.table(read.table(file.path(current_wd, folder, 'features.txt')))
+head(features)
+dim(features)
+feature_names <- dplyr::pull(features, V2) #used dplyr to change the class to a vector and then use the content as names for the table
+
 #The sample is of 30 people, labeled from 1 to 30; test and train subjects are different people, randomly splitted from the sample.
-#Besides, dimensionality suggests labels and subjects are column vectors from the same set matrix.
+#Besides, dimensionality suggests labels and subjects are column vectors associated with the same set matrix, 
+#which takes column names from  features second column vector.
 #thus, merging test/train groups by column and the resulting 2 groups by row seems reasonable.
+
+
 
 
 
 #Merging train and test sets
 
+ Complete_table<- rbind(cbind(train_subjects, training_lables, training_set),
+                        cbind(test_subjects,  testing_lables,  testing_set))
+ 
+char_feature_names <- as.vector(feature_names, mode = "character") 
+table_names <- c('subject','lable',char_feature_names) 
 
-
+colnames(Complete_table) <- table_names
+head(Complete_table)
 
 
 
