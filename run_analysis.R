@@ -76,11 +76,51 @@ feature_position_index <- c( located_indexes + 2 ) # to take into account the tw
 positionstofilter <- c(1,2,feature_position_index) # to actually include those 2 columns
 filtered_names <- char_feature_names[located_indexes] # just to check the regular expression was right
 
-
-
-filtered_table <- Complete_table[,..positionstofilter] #the two dots were suggested by the console,following an error
-head(filtered_table)  #that´s why i checked it was ok 
+filtered_table <- Complete_table[,..positionstofilter] #the two dots were suggested by the console after an error
+head(filtered_table)  #that´s why I checked it was ok 
 class(filtered_table)
+
+remove(Complete_table)
+
+
+
+
+#putting names to the activity labels
+
+activity_labels <- data.table(read.table(file.path(current_wd, folder, 'activity_labels.txt')))
+filtered_table[[2]] <- factor(filtered_table[[2]],levels = activity_labels[[1]],labels = activity_labels[[2]])
+
+
+
+
+
+#fixing  names 
+
+setnames(filtered_table,'lable','activity')
+colnames(filtered_table) <- gsub('BodyBody','Body',colnames(filtered_table))
+colnames(filtered_table) <- gsub('^t','time',colnames(filtered_table))
+colnames(filtered_table) <- gsub('^f','frecuency',colnames(filtered_table))
+colnames(filtered_table) <- gsub('Acc','Acceleraion',colnames(filtered_table))
+colnames(filtered_table) <- gsub('Gyr','Gyroscope',colnames(filtered_table))
+colnames(filtered_table) <- gsub('BodyBody','Body',colnames(filtered_table))
+
+
+
+
+#creating final tidy dataset
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
