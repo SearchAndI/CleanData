@@ -94,7 +94,7 @@ filtered_table[[2]] <- factor(filtered_table[[2]],levels = activity_labels[[1]],
 
 
 
-#fixing  names 
+#descriptive names 
 
 setnames(filtered_table,'lable','activity')
 colnames(filtered_table) <- gsub('BodyBody','Body',colnames(filtered_table))
@@ -102,12 +102,25 @@ colnames(filtered_table) <- gsub('^t','time',colnames(filtered_table))
 colnames(filtered_table) <- gsub('^f','frecuency',colnames(filtered_table))
 colnames(filtered_table) <- gsub('Acc','Acceleraion',colnames(filtered_table))
 colnames(filtered_table) <- gsub('Gyr','Gyroscope',colnames(filtered_table))
-colnames(filtered_table) <- gsub('BodyBody','Body',colnames(filtered_table))
 
 
 
 
-#creating final tidy dataset
+
+#creating final data set
+
+
+tidy_set <-  filtered_table %>% group_by( subject , activity ) %>% summarise(across(where(is.numeric),mean) ) 
+                                                                   #based on the "colwise" vignette in cran.r
+new_names <- c(names(tidy_set[c(1,2)]), paste0("Average of-", names(tidy_set[-c(1, 2)])))
+colnames(tidy_set) <- new_names
+
+write.table(tidy_set,'average_summary.txt', row.names = F)
+View(tidy_set) # in R.studio, this let you look at the table as a spreadsheet 
+
+
+
+
 
 
 
