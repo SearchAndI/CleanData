@@ -37,7 +37,7 @@ newer than the content of the course and that is suggested in R help, when looki
 The easiest way to look at the end result of the process is to run  `run_analysis.R`, which should guarantee reproducibility, as long as the link 
 https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip is still working, or you have the data on your working directory. 
 Anyhow, as it is part of the review criteria, and you are probably here to peer review this work 👋 🙏 , here is the list of all the variables resulting from
-extracting just the mean and standard deviation from the re-ensembled data, and then taking their average by subject:
+extracting just the means and standard deviations from the re-ensembled data, and then taking their average by subject:
 
 
 ```
