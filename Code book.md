@@ -2,8 +2,9 @@
 
 ## About this repository
 
-This repo is an assignment for the Jhons Hopkins MOOC "Getting and cleaning data"
-The exact instructuons are quite explanatory of the process and goes as follows:
+This repo is an assignment for the Johns Hopkins MOOC "Getting and cleaning data"
+The exact instructions are quite explanatory of the process and goes as follows:
+
 
 ```
 You should create one R script called run_analysis.R that does the following. 
@@ -16,25 +17,28 @@ You should create one R script called run_analysis.R that does the following.
    for each activity and each subject.
 ```
 ## About the  data
-The original source of data is the [UCI Machine learning repository](http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones); it was collected from the movement sensors in a Galaxy s phone.
-Going to their page and by clickig on 'data folder' you can obtain complete information about the data.
+The original source of data is the [UCI Machine learning repository] (http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones); it was collected from the movement sensors in a Galaxy s phone.
+Going to their page and by clicking on 'data folder' you can obtain complete information about the data.
 
-As for the units, the analysis consisted on merging, filtering and calculating means, so they are mantained as they were on the original data.
-The transformations, though, led to the classes being numeric, except for  `activity`   which is a factor.
+As for the units, the analysis consisted on merging, filtering, and calculating means, so they are maintained as they were on the original data.
+The transformations, though, led to the classes being numeric, except for `activity`   which is a factor.
+
 
 ## About the choices
 
-As you could confirm in the original sources, the data was atomised by subject (which were separated into test and training subjects), by labels and by axis (X,Y and Z).
-To group them togheter, given the names and lables were separated from the information, I relied on dimentionality and the fact there was 30 different people splitted into
-two groups. From there, it was a matter of using the tools (packages) that were demonstrated to us during the course. Except for `across()` which is an implemetation that is
-newer than the content of the course and that is sugested in R help, when looking for column-wise functions implementation. 
+As you could confirm in the original sources, the data was atomized by subject (which were separated into test and training subjects), by labels and by axis (X,Y and Z).
+To group them together, given the names and labels were separated from the information, I relied on dimensionality and the fact there was 30 different people split into
+two groups. From there, it was a matter of using the tools (packages) that were demonstrated to us during the course. Except for `across()` which is an implementation that is
+newer than the content of the course and that is suggested in R help, when looking for column-wise functions implementation.
+ 
 
 ## About reproducibility and variables
 
-The easiest way to look at the end result of the process is to run  `run_analysis.R`, which should garantee reproducibility, as long as the link 
+The easiest way to look at the end result of the process is to run  `run_analysis.R`, which should guarantee reproducibility, as long as the link 
 https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip is still working, or you have the data on your working directory. 
-Anyhow, as it is part of the review criteria, and you are probably here to peer review this work 👋 🙏 , here is the list all the variables resulting from
-extraxting just the mean and estandard deviation from the re-ensambled data, and then taking their average by subject:
+Anyhow, as it is part of the review criteria, and you are probably here to peer review this work 👋 🙏 , here is the list of all the variables resulting from
+extracting just the mean and standard deviation from the re-ensembled data, and then taking their average by subject:
+
 
 ```
 
