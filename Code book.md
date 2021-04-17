@@ -17,7 +17,7 @@ You should create one R script called run_analysis.R that does the following.
    for each activity and each subject.
 ```
 ## About the  data
-The original source of data is the [UCI Machine learning repository] (http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones); it was collected from the movement sensors in a Galaxy s phone.
+The original source of data is the [UCI Machine learning repository](http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones); it was collected from the movement sensors in a Galaxy s phone.
 Going to their page and by clicking on 'data folder' you can obtain complete information about the data.
 
 As for the units, the analysis consisted on merging, filtering, and calculating means, so they are maintained as they were on the original data.
